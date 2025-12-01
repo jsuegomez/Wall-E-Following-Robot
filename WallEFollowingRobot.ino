@@ -145,5 +145,6 @@ void moveHead()
   }
 
   headServo.write(servoAngle);
-  delay(5); 
+  delay(10); 
 }
+
