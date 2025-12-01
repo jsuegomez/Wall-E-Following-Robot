@@ -13,7 +13,7 @@
 #define IR_SENSOR_RIGHT 11
 #define IR_SENSOR_LEFT 10
 
-#define servoPin = 13
+#define SERVOPIN 13
 
 // Right motor: connect to driver IN1 / IN2
 int rightMotorPin1 = 7;
@@ -24,8 +24,8 @@ int leftMotorPin1 = 3;
 int leftMotorPin2 = 2;
 
 Servo headServo;
-int servoAngle = 0:
-int servoDirection = 1:
+int servoAngle = 0;
+int servoDirection = 1;
 
 // Ultrasonic sensor (max distance 400 cm)
 NewPing mySensor(ULTRASONIC_SENSOR_TRIG, ULTRASONIC_SENSOR_ECHO, 400);
@@ -42,7 +42,7 @@ void setup()
   pinMode(IR_SENSOR_RIGHT, INPUT);
   pinMode(IR_SENSOR_LEFT,  INPUT);
 
-  headServo.attach(servoPin);
+  headServo.attach(SERVOPIN);
   headServo.write(90);
 
   // Make sure motors are stopped at startup
@@ -145,5 +145,5 @@ void moveHead()
   }
 
   headServo.write(servoAngle);
-  delay(10); 
+  delay(5); 
 }
