@@ -62,28 +62,25 @@ void loop()
   if (rightIRSensorValue == LOW && leftIRSensorValue == HIGH)
   {
     turnRight();
-    moveHead();
   }
   // If left sensor detects hand, then turn left
   else if (rightIRSensorValue == HIGH && leftIRSensorValue == LOW)
   {
     turnLeft();
-    moveHead();
   }
   // If distance is between min and max then go straight
   else if (distance >= MIN_DISTANCE && distance <= MAX_DISTANCE)
   {
     moveForward();
-    moveHead();
   }
   // Otherwise stop the motors
   else
   {
     stopMotors();
   }
-}
 
-// ===== Motor helper functions (no enable pins) =====
+  moveHead(); // Moves head whenever the robot is on
+}
 
 // Both motors forward
 void moveForward()
@@ -145,6 +142,7 @@ void moveHead()
   }
 
   headServo.write(servoAngle);
-  delay(10); 
+  delay(15); 
 }
+
 
